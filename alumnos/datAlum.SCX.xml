@@ -54,7 +54,7 @@
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0QUXN9</uniqueid>
-		<timestamp>1432323626</timestamp>
+		<timestamp>1432442232</timestamp>
 		<class>formamsl</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>form</baseclass>
@@ -64,15 +64,102 @@
 Width = 375
 DoCreate = .T.
 Caption = "Datos Alumnos"
+WindowState = 0
 Name = "Formamsl1"
 Marco.Name = "Marco"
 </properties>
 		<protected/>
 		<methods>PROCEDURE Init
-with ThisForm
+*nModo Almacena la forma en que va a mandar llamar la ventana
+*1 = Agregar
+*2 = Modificar
+*3 = Eliminar
 
+* Manda llamar la ventana segÃºn la acciÃ³n que se va a realizar
+LParameter nModo, nRec
+if Not OpenDbf ('Alumnos','ID')
+	Return .F.
+EndIf
+
+With thisform
+*La herramienta 'With thisform' elimina la necesidad de estar indicando en cada linea que los procesos que se estÃ¡n programando son para esta ventana.
 	.Fecha1.setValue(date())
+	* Si no se recibe ningÃºn parÃ¡metro, nModo = 1. Agregar
+	if PCount()==0
+		nModo =1
+	EndIf
 	
+	* Asignamos a la propiedad nModo en que mandamos llamar la ventana
+	.nModo = nModo
+	
+	Select Alumnos
+	* Si la forma de llamar la ventana es modificar o eliminar
+	IF(.nModo == 2 Or .nModo == 3)
+
+		*Validamos que el nÃºmero de registros que se recibiÃ³ como parÃ¡metro exista
+		if(nRec&lt;=0 Or nRec&gt;Reccount())
+			Alerta('Registro no válido')
+			Return .F.
+		EndIf
+		
+		*Entonces es un nÃºmero de registros vÃ¡lido. y me posiciono en ese registro
+		GoTo nRec
+	EndIf
+	
+	Do case
+	Case .nModo==1
+		* Agregar | Cambiar el titulo de la ventana y del botÃ³n
+		.Caption = 'Agregar Alumno'
+		.Grabar.Caption='\&lt;Agregar'
+		Select Alumnos
+		Go Bott
+		.txtId.value = PadL(Allt(SigDoc(ID)),5)
+	
+	Case .nModo==2
+		* Modificar | Cambiar el titulo de la ventana y del botÃ³n
+		.caption = 'Modificar Alumno'
+		.Grabar.Caption = '\&lt;Modificar'
+		
+		.txtId.Enabled = .F.
+		
+		.CargarInfo()
+	
+	Case .nModo==3
+		* Eliminar | Cambiar el titulo de la ventana y del botÃ³n
+		.Caption = 'Eliminar Alumno'
+		.Grabar.Caption='\&lt;Eliminar'
+		
+		.CargarInfo()
+		.SetAll('enabled', .F.)
+		
+		.Grabar.Enabled = .T.
+		.Cerrar.Enabled = .T.			
+	endCase		
+EndWith
+ENDPROC
+PROCEDURE cargarinfo
+* MÃ©todo para cargar la informaciÃ³n del chofer
+with ThisForm
+	.txtId.Value = Alumnos.ID
+	.txtNombre.Value = Alumnos.NOMBRE
+	.txtApellidos.Value = Alumnos.APELLIDOS
+	.txtGrado.Value = Alumnos.GRADO
+	.txtGrupo.Value = Alumnos.GRUPO
+	.txtMatricula.Value  = Alumnos.MATRICULA
+	.Fecha1.value = Alumnos.FECHANAC
+EndWith
+ENDPROC
+PROCEDURE saveinfo
+* MÃ©todo para guardar la informaciÃ³n
+With thisform
+	select Alumnos
+	replace	ID 	With 	.txtId.Value,;
+			NOMBRE	 	With 	Allt(.txtNombre.Value),;
+			APELLIDOS 	with 	Allt(.txtApellidos.Value),;
+			GRADO		With 	Allt(.txtGrado.Value),;
+			GRUPO 		With	Allt(.txtGrupo.Value),;
+			MATRICULA 	With 	Allt(.txtMatricula.Value),;
+			FECHANAC 	With 	.Fecha1.getValue()
 endwith
 ENDPROC
 </methods>
@@ -81,7 +168,10 @@ ENDPROC
 		<ole2/>
 		<reserved1/>
 		<reserved2/>
-		<reserved3/>
+		<reserved3>nmodo Variable para Grabar, Modificar o Eliminar
+*saveinfo Método para guardar la información
+*cargarinfo Método para cargar la información
+</reserved3>
 		<reserved4/>
 		<reserved5/>
 		<reserved6/>
@@ -268,17 +358,18 @@ Name = "Leyenda6"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RISD9</uniqueid>
-		<timestamp>1432315470</timestamp>
+		<timestamp>1432439123</timestamp>
 		<class>texto</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
-		<objname>Texto1</objname>
+		<objname>txtNombre</objname>
 		<parent>Formamsl1</parent>
 		<properties>Height = 21
 Left = 115
+TabIndex = 2
 Top = 60
 Width = 205
-Name = "Texto1"
+Name = "txtNombre"
 </properties>
 		<protected/>
 		<methods/>
@@ -298,17 +389,18 @@ Name = "Texto1"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0QUXN9</uniqueid>
-		<timestamp>1432315470</timestamp>
+		<timestamp>1432439123</timestamp>
 		<class>texto</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
-		<objname>Texto2</objname>
+		<objname>txtApellidos</objname>
 		<parent>Formamsl1</parent>
 		<properties>Height = 21
 Left = 115
+TabIndex = 3
 Top = 84
 Width = 205
-Name = "Texto2"
+Name = "txtApellidos"
 </properties>
 		<protected/>
 		<methods/>
@@ -328,16 +420,17 @@ Name = "Texto2"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RISDB</uniqueid>
-		<timestamp>1432315470</timestamp>
+		<timestamp>1432439123</timestamp>
 		<class>texto</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
-		<objname>Texto3</objname>
+		<objname>txtGrado</objname>
 		<parent>Formamsl1</parent>
 		<properties>Left = 115
+TabIndex = 4
 Top = 109
 Width = 60
-Name = "Texto3"
+Name = "txtGrado"
 </properties>
 		<protected/>
 		<methods/>
@@ -357,17 +450,18 @@ Name = "Texto3"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RISDC</uniqueid>
-		<timestamp>1432315470</timestamp>
+		<timestamp>1432439123</timestamp>
 		<class>texto</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
-		<objname>Texto4</objname>
+		<objname>txtGrupo</objname>
 		<parent>Formamsl1</parent>
 		<properties>Height = 21
 Left = 260
+TabIndex = 5
 Top = 111
 Width = 60
-Name = "Texto4"
+Name = "txtGrupo"
 </properties>
 		<protected/>
 		<methods/>
@@ -387,13 +481,14 @@ Name = "Texto4"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RISDD</uniqueid>
-		<timestamp>1432315593</timestamp>
+		<timestamp>1432439123</timestamp>
 		<class>textofecha</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
 		<objname>Fecha1</objname>
 		<parent>Formamsl1</parent>
 		<properties>Left = 153
+TabIndex = 7
 Top = 157
 Name = "Fecha1"
 </properties>
@@ -414,49 +509,86 @@ Name = "Fecha1"
 	</record>
 	<record>
 		<platform>WINDOWS</platform>
-		<uniqueid>_6GQ0RISDE</uniqueid>
-		<timestamp>1432315470</timestamp>
-		<class>statictext</class>
-		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
-		<baseclass>textbox</baseclass>
-		<objname>Statictext1</objname>
-		<parent>Formamsl1</parent>
-		<properties>Left = 115
-Top = 35
-Name = "Statictext1"
-</properties>
-		<protected/>
-		<methods/>
-		<objcode/>
-		<ole/>
-		<ole2/>
-		<reserved1/>
-		<reserved2/>
-		<reserved3/>
-		<reserved4/>
-		<reserved5/>
-		<reserved6/>
-		<reserved7/>
-		<reserved8/>
-		<user/>
-	</record>
-	<record>
-		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RISDF</uniqueid>
-		<timestamp>1432315593</timestamp>
+		<timestamp>1432442232</timestamp>
 		<class>boton</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>commandbutton</baseclass>
-		<objname>Boton1</objname>
+		<objname>grabar</objname>
 		<parent>Formamsl1</parent>
 		<properties>Top = 195
 Left = 95
 Width = 70
 Caption = "Grabar"
-Name = "Boton1"
+TabIndex = 8
+Name = "grabar"
 </properties>
 		<protected/>
-		<methods/>
+		<methods>PROCEDURE Click
+* Graba la informaciÃ³n
+With Thisform
+	
+	*Manda llamar las validaciones, si estoy agregando o modificando
+if(.nModo&lt;=2)
+
+	If .nModo ==1
+		
+		* Validar que no se omita la clave del Alumno		
+		If Empty(.txtId.Value)
+			Alerta('No se puede omitir la clave del Alumno')
+			.txtId.SetFocus()
+			Return .F.
+		EndIf
+		
+		* Validar que no exista otro Alumno con la misma clave
+		if seek(PadL(Allt(.txtId.value),5), 'Alumnos')
+			alerta('Ya existe un Alumno con la misma clave')
+			.txtId.setfocus()
+			Return .F.
+		EndIf
+		
+	EndIf
+		
+		* Validar que no se omita el nombre
+		if empty (.txtNombre.Value)
+			Alerta('No se puede omitir el nombre')
+			.txtNombre.SetFocus()
+			Return .F.
+		EndIf
+	EndIf
+	
+	Do case
+		Case .nModo==1
+			Select Alumnos
+			Append blank
+			
+			* Manda llamar el mÃ©todo para guardar la informaciÃ³n
+			.SaveInfo()
+			
+			* Cerrar la ventana despuÃ©s de grabar
+			.Release
+		
+		Case .nModo==2
+			* Manda llamar el mÃ©todo para guardar la informaciÃ³n
+			.SaveInfo()
+			
+			* Cerrar la ventana despuÃ©s de grabar
+			.Release
+		
+		Case .nModo==3
+			* Eliminar
+			*Preguntar si realmente desea eliminar el chofer
+			if GetNY('¿Desea eliminar al Alumno')
+				Select Alumnos
+				Delete
+			EndIf
+			
+			* Cerrar la ventana despuÃ©s de eliminar
+			.release	
+	EndCase
+EndWith
+ENDPROC
+</methods>
 		<objcode/>
 		<ole/>
 		<ole2/>
@@ -473,15 +605,16 @@ Name = "Boton1"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RISDG</uniqueid>
-		<timestamp>1432315593</timestamp>
+		<timestamp>1432442232</timestamp>
 		<class>closebutton</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>commandbutton</baseclass>
-		<objname>Closebutton1</objname>
+		<objname>cerrar</objname>
 		<parent>Formamsl1</parent>
 		<properties>Top = 195
 Left = 210
-Name = "Closebutton1"
+TabIndex = 9
+Name = "cerrar"
 </properties>
 		<protected/>
 		<methods/>
@@ -530,20 +663,56 @@ Name = "Leyenda7"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RNQE4</uniqueid>
-		<timestamp>1432315593</timestamp>
+		<timestamp>1432439123</timestamp>
 		<class>texto</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
-		<objname>Texto5</objname>
+		<objname>txtMatricula</objname>
 		<parent>Formamsl1</parent>
 		<properties>Height = 21
 Left = 114
+TabIndex = 6
 Top = 133
 Width = 205
-Name = "Texto5"
+Name = "txtMatricula"
 </properties>
 		<protected/>
 		<methods/>
+		<objcode/>
+		<ole/>
+		<ole2/>
+		<reserved1/>
+		<reserved2/>
+		<reserved3/>
+		<reserved4/>
+		<reserved5/>
+		<reserved6/>
+		<reserved7/>
+		<reserved8/>
+		<user/>
+	</record>
+	<record>
+		<platform>WINDOWS</platform>
+		<uniqueid>_6GR0JO3T4</uniqueid>
+		<timestamp>1432442130</timestamp>
+		<class>texto</class>
+		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
+		<baseclass>textbox</baseclass>
+		<objname>txtId</objname>
+		<parent>Formamsl1</parent>
+		<properties>Height = 21
+Left = 115
+TabIndex = 1
+Top = 30
+Width = 60
+Name = "txtId"
+</properties>
+		<protected/>
+		<methods>PROCEDURE Valid
+* Alinear la clave del Alumno
+this.Value=PadL(Allt(this.Value),5)
+ENDPROC
+</methods>
 		<objcode/>
 		<ole/>
 		<ole2/>

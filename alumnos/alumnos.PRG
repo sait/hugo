@@ -48,10 +48,10 @@ procedure crearCampos()
 			ID c(5),;
 			NOMBRE c(50),;
 			APELLIDOS c(50),;
-			Grado c(1),;
-			Grupo c(1),;
-			Matricula c(20),;
-			FechaNac d(8))
+			GRADO c(1),;
+			GRUPO c(1),;
+			MATRICULA c(20),;
+			FECHANAC d(8)
 		select Alumnos
 		index on ID tag ID
 		
@@ -65,7 +65,7 @@ procedure crearCampos()
 	endif
 	
 	if not file("alumnos.dbf")
-		alerta("No exciste alumnos.dbf")
+		alerta("No existe alumnos.dbf")
 		quitit()
 	endif
 	
