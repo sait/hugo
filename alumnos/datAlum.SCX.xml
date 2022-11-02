@@ -54,7 +54,7 @@
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0QUXN9</uniqueid>
-		<timestamp>1432442232</timestamp>
+		<timestamp>1432453480</timestamp>
 		<class>formamsl</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>form</baseclass>
@@ -358,13 +358,14 @@ Name = "Leyenda6"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RISD9</uniqueid>
-		<timestamp>1432439123</timestamp>
+		<timestamp>1432452803</timestamp>
 		<class>texto</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
 		<objname>txtNombre</objname>
 		<parent>Formamsl1</parent>
-		<properties>Height = 21
+		<properties>Format = "!"
+Height = 21
 Left = 115
 TabIndex = 2
 Top = 60
@@ -389,13 +390,14 @@ Name = "txtNombre"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0QUXN9</uniqueid>
-		<timestamp>1432439123</timestamp>
+		<timestamp>1432453370</timestamp>
 		<class>texto</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
 		<objname>txtApellidos</objname>
 		<parent>Formamsl1</parent>
-		<properties>Height = 21
+		<properties>Format = "!"
+Height = 21
 Left = 115
 TabIndex = 3
 Top = 84
@@ -420,13 +422,14 @@ Name = "txtApellidos"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RISDB</uniqueid>
-		<timestamp>1432439123</timestamp>
+		<timestamp>1432453370</timestamp>
 		<class>texto</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
 		<objname>txtGrado</objname>
 		<parent>Formamsl1</parent>
-		<properties>Left = 115
+		<properties>InputMask = "99"
+Left = 115
 TabIndex = 4
 Top = 109
 Width = 60
@@ -450,13 +453,14 @@ Name = "txtGrado"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RISDC</uniqueid>
-		<timestamp>1432439123</timestamp>
+		<timestamp>1432453370</timestamp>
 		<class>texto</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
 		<objname>txtGrupo</objname>
 		<parent>Formamsl1</parent>
-		<properties>Height = 21
+		<properties>Format = "!"
+Height = 21
 Left = 260
 TabIndex = 5
 Top = 111
@@ -663,13 +667,14 @@ Name = "Leyenda7"
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0RNQE4</uniqueid>
-		<timestamp>1432439123</timestamp>
+		<timestamp>1432453480</timestamp>
 		<class>texto</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>textbox</baseclass>
 		<objname>txtMatricula</objname>
 		<parent>Formamsl1</parent>
 		<properties>Height = 21
+InputMask = "99999999999"
 Left = 114
 TabIndex = 6
 Top = 133

@@ -27,8 +27,8 @@
 	</record>
 	<record>
 		<platform>WINDOWS</platform>
-		<uniqueid>_6GQ0NIRM5</uniqueid>
-		<timestamp>1432311630</timestamp>
+		<uniqueid>_6GR0OYEEK</uniqueid>
+		<timestamp>1432444114</timestamp>
 		<class>dataenvironment</class>
 		<classloc/>
 		<baseclass>dataenvironment</baseclass>
@@ -53,58 +53,38 @@
 	</record>
 	<record>
 		<platform>WINDOWS</platform>
-		<uniqueid>_6GQ0NIRM6</uniqueid>
-		<timestamp>1432444629</timestamp>
-		<class>catmsl</class>
-		<classloc>..\..\..\msllib60\catmsl.vcx</classloc>
+		<uniqueid>_6GR0OYEEL</uniqueid>
+		<timestamp>1432444114</timestamp>
+		<class>busqueda</class>
+		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>form</baseclass>
-		<objname>Catmsl1</objname>
+		<objname>Busqueda1</objname>
 		<parent/>
-		<properties>Height = 350
-Width = 580
-DoCreate = .T.
-Caption = "Catálogo de Alumnos"
-WindowState = 0
-Name = "Catmsl1"
+		<properties>DoCreate = .T.
+Name = "Busqueda1"
 Marco.Name = "Marco"
-Pags.ErasePage = .T.
-Pags.Page1.Name = "Page1"
-Pags.Name = "Pags"
-Grid1.Column1.Header1.Name = "Header1"
-Grid1.Column1.Text1.Name = "Text1"
-Grid1.Column1.Name = "Column1"
-Grid1.Name = "Grid1"
-Agregar.Name = "Agregar"
-Modificar.Name = "Modificar"
-Eliminar.Name = "Eliminar"
-Excel.Name = "Excel"
-Buscar.Name = "Buscar"
-Imprimir.Name = "Imprimir"
-Cerrar.Name = "Cerrar"
+Label1.Name = "Label1"
+Text1.Name = "Text1"
+List1.Name = "List1"
 </properties>
 		<protected/>
 		<methods>PROCEDURE Init
-	if not OpenDbf('Alumnos', 'ID')
-		return .F.
-	EndIf
-	
-	*
-	* Form params
-	* 	@cAlias: Tabla que se está usando
-	* 	@cCatName: Nombre del catálogo
-	*	@FormaCatalogo: Formulario para hacer cambios
-	*	@FormaBusqueda: Formulario para hacer búsquedas
-	*	@cAnchos: Anchos de la columnas del grid, formato en pixeles y separado por este signo |
-	*	@cTitulos: Títulos de las columnas del grid, separados por este signo |
-	*	@cExprs: Campos a mostrar en el grid separados por este signo |
-	
-	this.cAlias = 'Alumnos'
-	this.cCatName = 'catalum'
-	this.FormaCatalogo = 'datAlum'
-	this.FormaBusqueda = 'listalum()'
-	this.cAnchos = '50|100|100|50|50|80|100'
-	this.cTitulos = 'Clave|Nombre|Apellidos|Grado|Grupo|Matricula|Fecha Nacimiento'
-	this.cExprs = 'Alumnos.ID|Alumnos.Nombre|Alumnos.Apellidos|Alumnos.Grado|Alumnos.Grupo|Alumnos.Matricula|Alumnos.FechaNac'
+* Ancho en pÃ­xeles, de las columnas
+this.anchos = '200,100'
+* Campos en dÃ³nde se buscarÃ¡ la informaciÃ³n capturada por el usuario.
+this.ccamposbuscar = 'NOMBRE'
+* Campos a seleccionar en la sentencia Select.
+this.ccamposelect = 'NOMBRE, ID'
+* Expresiones a desplegar en cada columna de la lista.
+this.cexprs = 'NOMBRE, ID'
+* Tabla en dÃ³nde buscaremos.
+this.frontable = 'Alumnos'
+* Campo que usaremos para ordenar el resultado de la sentencia Select.
+this.orderby = ''
+* Nombre del campo a regresar como resultado de la bÃºsqueda.
+this.retval = 'ID'
+* SQL a realizar para la bÃºsqueda.
+this.csql = ''
 ENDPROC
 </methods>
 		<objcode/>
