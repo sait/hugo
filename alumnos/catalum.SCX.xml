@@ -54,7 +54,7 @@
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GQ0NIRM6</uniqueid>
-		<timestamp>1432444629</timestamp>
+		<timestamp>1432575105</timestamp>
 		<class>catmsl</class>
 		<classloc>..\..\..\msllib60\catmsl.vcx</classloc>
 		<baseclass>form</baseclass>
@@ -83,7 +83,23 @@ Imprimir.Name = "Imprimir"
 Cerrar.Name = "Cerrar"
 </properties>
 		<protected/>
-		<methods>PROCEDURE Init
+		<methods>PROCEDURE Buscar.Click
+noDefault
+*
+* Buscar.click()
+*
+local cID
+
+cID = ''
+do form listalum to cID
+
+if not empty(cID)
+select Alumnos
+=seek(cID)
+ThisForm.Grid1.refresh()
+endif
+ENDPROC
+PROCEDURE Init
 	if not OpenDbf('Alumnos', 'ID')
 		return .F.
 	EndIf
@@ -100,8 +116,8 @@ Cerrar.Name = "Cerrar"
 	
 	this.cAlias = 'Alumnos'
 	this.cCatName = 'catalum'
-	this.FormaCatalogo = 'datAlum'
-	this.FormaBusqueda = 'listalum()'
+	this.FormaCatalogo = 'datalum'
+	this.FormaBusqueda = 'listalum'
 	this.cAnchos = '50|100|100|50|50|80|100'
 	this.cTitulos = 'Clave|Nombre|Apellidos|Grado|Grupo|Matricula|Fecha Nacimiento'
 	this.cExprs = 'Alumnos.ID|Alumnos.Nombre|Alumnos.Apellidos|Alumnos.Grado|Alumnos.Grupo|Alumnos.Matricula|Alumnos.FechaNac'

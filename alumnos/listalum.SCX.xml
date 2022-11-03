@@ -54,7 +54,7 @@
 	<record>
 		<platform>WINDOWS</platform>
 		<uniqueid>_6GR0OYEEL</uniqueid>
-		<timestamp>1432444114</timestamp>
+		<timestamp>1432577652</timestamp>
 		<class>busqueda</class>
 		<classloc>..\..\..\msllib60\msllib60.vcx</classloc>
 		<baseclass>form</baseclass>
@@ -64,27 +64,37 @@
 Name = "Busqueda1"
 Marco.Name = "Marco"
 Label1.Name = "Label1"
+Text1.Format = "!"
 Text1.Name = "Text1"
 List1.Name = "List1"
 </properties>
 		<protected/>
 		<methods>PROCEDURE Init
-* Ancho en pÃ­xeles, de las columnas
-this.anchos = '200,100'
-* Campos en dÃ³nde se buscarÃ¡ la informaciÃ³n capturada por el usuario.
-this.ccamposbuscar = 'NOMBRE'
-* Campos a seleccionar en la sentencia Select.
-this.ccamposelect = 'NOMBRE, ID'
-* Expresiones a desplegar en cada columna de la lista.
-this.cexprs = 'NOMBRE, ID'
-* Tabla en dÃ³nde buscaremos.
-this.frontable = 'Alumnos'
-* Campo que usaremos para ordenar el resultado de la sentencia Select.
-this.orderby = ''
-* Nombre del campo a regresar como resultado de la bÃºsqueda.
-this.retval = 'ID'
-* SQL a realizar para la bÃºsqueda.
-this.csql = ''
+*
+* Init()
+*
+
+*
+* Params:
+* cAnchos: Ancho en píxeles, de las columnas
+* cCamposBuscar: Campos en dónde se buscará la información capturada por el usuario.
+* cCamposSelect: Campos a seleccionar en la sentencia Select.
+* cExprs: Expresiones a desplegar en cada columna de la lista.
+* cFromTable: Tabla en dónde buscaremos.
+* cOrderBy: Campo que usaremos para ordenar el resultado de la sentencia Select.
+* cRetval: Nombre del campo a regresar como resultado de la búsqueda.
+* cSql: SQL a realizar para la búsqueda. Ejemplo: Select * From Alumnos Where Upper() $ Upper() Order By Nombre
+*
+With ThisForm
+	.cAnchos = '20,75,100'
+	.cCamposBuscar = 'NOMBRE+APELLIDOS'
+	.cCamposSelect = '*'
+	.cExprs = 'ID, NOMBRE, APELLIDOS'
+	.cFromTable = 'Alumnos'
+	.cOrderby = 'NOMBRE'
+	.cRetval = 'ID'
+	.cSql = ''
+EndWith
 ENDPROC
 </methods>
 		<objcode/>
