@@ -1,4 +1,16 @@
+# Creación del Catalogo
+Para la creación del modulo especial, es posible iniciar desde el catalogo, ya que SAIT ofrece formularios predefinidos para facilitar dicha creación
 
+Para ello, nos dirigimos a VFP a la ventana de comandos y creamos el catalogo con la forma predefinida para catalogos (catmsl)
+
+``` create form catalum as catmsl from F:hugo\msllib60\catmsl.vcx ```
+
+Se creara el siguiente catalogo.
+
+![Imagen de Catalogo de Alumnos](https://github.com/sait/hugo/tree/main/alumnos/Documentacion/img/catalum.png)
+
+
+Dicho catalogo no sera necesario modificar su diseño, todo cambio necesario se hara por medio del codigo.
 
 ## catalum.Init
 * Form params

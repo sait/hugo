@@ -6,4 +6,4 @@ Esté repositorio es para subir los ejercicios para poder comprender como se uti
 - El ejercicio de alumnos contiene varios ejercicios por comprender
     - Ventana de Catalogo
     - Ventana de Ingresar Datos
-    - Ventana de Busqueda (proximamente)
+    - Ventana de Busqueda
