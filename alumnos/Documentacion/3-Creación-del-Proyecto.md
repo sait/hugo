@@ -34,6 +34,8 @@ copy file Alumnos.app to F:\hugo\demo\Alumnos.app
 
 Para compilar el proyecto hacemos un ``` do + archivo .prg ```
 
-``` do make ```
+```vfp
+do make
+```
 
 Esté archivo debera utilizarse cada vez que agreguemos/modifiquemos algún formulario o archivos de codigo (prg)
