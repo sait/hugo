@@ -1,4 +1,7 @@
 # Creación del Catalogo
+
+## 03 de Noviembre del 2022
+
 Para la creación del modulo especial, es posible iniciar desde el catalogo, ya que SAIT ofrece formularios predefinidos para facilitar dicha creación
 
 Para ello, nos dirigimos a VFP a la ventana de comandos y creamos el catalogo con la forma predefinida para catalogos (catmsl)
