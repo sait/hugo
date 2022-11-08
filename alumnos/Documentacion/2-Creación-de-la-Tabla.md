@@ -5,7 +5,9 @@
 Para la creación de la tabla donde se guardaran los datos de los alumnos, debemos crear un archivo con extensión '.prg'
 
 Creamos un archivo llamado 'make'
-``` modi comm make ```
+```sql 
+modi comm make 
+```
 
 En dicho archivo, escribiremos varios procesos
 
