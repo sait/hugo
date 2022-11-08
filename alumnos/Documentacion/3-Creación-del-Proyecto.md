@@ -7,7 +7,7 @@ Debemos de crear un proyecto en donde ingresaremos todos los archivos para crear
 
 Para ello, en la ventana de comandos, abrimos un proyecto ``` modi project + nombre del proyecto ```
 
-```vfp 
+```sql 
 modi project Alumnos
 ```
 
@@ -25,7 +25,7 @@ Todos los formularios creados, que estén ligados a nuestra ventana principal (c
 
 Para copiar el proyecto dentro del sistema SAIT, debemos crear un archivo prg que contruya el proyecto con sus respectivas tablas y copiar/sobrescribir el proyecto en caso de que ya exista
 
-```vfp
+```sql
 set safety off
 
 built app Alumnos from Alumnos
@@ -34,7 +34,7 @@ copy file Alumnos.app to F:\hugo\demo\Alumnos.app
 
 Para compilar el proyecto hacemos un ``` do + archivo .prg ```
 
-```vfp
+```sql
 do make
 ```
 
