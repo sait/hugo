@@ -7,4 +7,4 @@ Debemos de crear un proyecto en donde ingresaremos todos los archivos para crear
 
 Para ello, en la ventana de comandos, abrimos un proyecto ``` modi project + nombre del proyecto ```
 
-``` modi project vfpmodi project Alumnos ```
+``` modi project Alumnos ```
