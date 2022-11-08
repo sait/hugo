@@ -1,3 +1,7 @@
+# Creación de la Tabla
+
+## 07 de Noviembre del 2022
+
 Para la creación de la tabla donde se guardaran los datos de los alumnos, debemos crear un archivo con extensión '.prg'
 
 Creamos un archivo llamado 'make'
