@@ -10,6 +10,7 @@ Para ello, en la ventana de comandos, abrimos un proyecto ``` modi project + nom
 ``` modi project Alumnos ```
 
 Se abrira una ventana
+
 ![Imagen del Proyecto](https://github.com/sait/hugo/blob/main/alumnos/Documentacion/img/project.png)
 
 En la seccion de **Documents/Forms** le damos en **Add** y seleccionamos nuestro catalogo hecho con anterioridad *catalum*
