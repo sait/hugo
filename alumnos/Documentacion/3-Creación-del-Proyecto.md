@@ -20,3 +20,18 @@ Despues de agregar *refer* debemos hacer click derecho y seleccionar la opción 
 #### Nota: El archivo *refer*, nos servira para ignorar todas las funciones que contiene SAIT y no son utilizadas en nuestro proyecto
 
 Todos los formularios creados, que estén ligados a nuestra ventana principal (catalum), debemos agregarlos al proyecto para que los muestre correctamente.
+
+Para copiar el proyecto dentro del sistema SAIT, debemos crear un archivo prg que contruya el proyecto con sus respectivas tablas y copiar/sobrescribir el proyecto en caso de que ya exista
+
+```vfp
+set safety off
+
+built app Alumnos from Alumnos
+copy file Alumnos.app to F:\hugo\demo\Alumnos.app
+```
+
+Para compilar el proyecto hacemos un ``` do + archivo .prg ```
+
+``` do make ```
+
+Esté archivo debera utilizarse cada vez que agreguemos/modifiquemos algún formulario o archivos de codigo (prg)
