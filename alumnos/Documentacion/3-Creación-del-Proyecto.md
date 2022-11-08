@@ -8,3 +8,14 @@ Debemos de crear un proyecto en donde ingresaremos todos los archivos para crear
 Para ello, en la ventana de comandos, abrimos un proyecto ``` modi project + nombre del proyecto ```
 
 ``` modi project Alumnos ```
+
+Se abrira una ventana
+![Imagen del Proyecto](https://github.com/sait/hugo/blob/main/alumnos/Documentacion/img/project.png)
+
+En la seccion de **Documents/Forms** le damos en **Add** y seleccionamos nuestro catalogo hecho con anterioridad *catalum*
+
+En la seccion de **Code/Programas** le damos en **Add** y seleccionamos nuestros archivos con extensión '.prg' *alumnos* y *refer*
+Despues de agregar *refer* debemos hacer click derecho y seleccionar la opción *Exclude*
+#### Nota: El archivo *refer*, nos servira para ignorar todas las funciones que contiene SAIT y no son utilizadas en nuestro proyecto
+
+Todos los formularios creados, que estén ligados a nuestra ventana principal (catalum), debemos agregarlos al proyecto para que los muestre correctamente.
