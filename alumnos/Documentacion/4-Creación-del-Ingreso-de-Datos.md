@@ -70,6 +70,7 @@ EndWith
 Ademas, Debemos crear dos metodos
 
 **CargarInfo()** - Nos permitira cargar la información para los modos modificar y eliminar
+
 **SaveInfo()** - Nos permitira guardar la información en la tabla en el modo agregar
 
 Para agregarlos a nuestra ventana, nos dirigimos a ```Form/New Method``` en *Name* escribimos ambos metodos para que nuestra ventana los identifique. 
