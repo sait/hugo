@@ -68,6 +68,7 @@ EndWith
 ```
 
 Ademas, Debemos crear dos metodos
+
 **CargarInfo()** - Nos permitira cargar la información para los modos modificar y eliminar
 **SaveInfo()** - Nos permitira guardar la información en la tabla en el modo agregar
 
