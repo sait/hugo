@@ -1,3 +1,13 @@
+# Crear Ventana 'Agregar Datos'
+
+## 09 de Noviembre del 2022
+
+En las ventanas de Catalogo, debemos de poder agregar datos, para ello, debemos configurar una ventana la cual obtenga esos datos y los guarde en la tabla
+Dicha Ventana, se utilizara para Agregar, Modificar y Eliminar.
+
+Para el *Init* debemos de crear una variable que utilizaremos para saber que modo utilizaremos al entrar a ella
+Para ello, nos dirigimos a ```Form/New Property``` en *Name* escribimos la variable ```nModo```
+
 ## datAlumn.Init
 * nModo Almacena la forma en que va a mandar llamar la ventana
     * 1 = Agregar
@@ -56,11 +66,19 @@ With thisform
 	endCase		
 EndWith
 ```
+
+Ademas, Debemos crear dos metodos
+**CargarInfo()** - Nos permitira cargar la información para los modos modificar y eliminar
+**SaveInfo()** - Nos permitira guardar la información en la tabla en el modo agregar
+
+Para agregarlos a nuestra ventana, nos dirigimos a ```Form/New Method``` en *Name* escribimos ambos metodos para que nuestra ventana los identifique. 
+
+
 CargarInfo()
 - Método para cargar la información
-``` java
-with ThisForm
-	.txtId.Value = Alumnos.ID
+```R
+With ThisForm
+	
 	.txtNombre.Value = Alumnos.NOMBRE
 	.txtApellidos.Value = Alumnos.APELLIDOS
 	.txtGrado.Value = Alumnos.GRADO
@@ -69,10 +87,12 @@ with ThisForm
 	.Fecha1.value = Alumnos.FECHANAC
 EndWith
 ```
+
+
 SaveInfo()
 - Método para guardar la información
-``` java
-With thisform
+```sql
+With ThisForm
 	select Alumnos
 	replace	ID 	With 	.txtId.Value,;
 			NOMBRE	 	With 	Allt(.txtNombre.Value),;

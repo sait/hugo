@@ -4,6 +4,14 @@ Esté repositorio es para subir los ejercicios para poder comprender como se uti
 
 ### Alumnos
 - El ejercicio de alumnos contiene varios pasos por comprender
-    - Ventana de Catalogo
-    - Ventana de Ingresar Datos
-    - Ventana de Busqueda
+    - Ventanas
+        - Catalogo
+            - Agregar Datos
+            - Busqueda
+    
+    Documentación
+    - Crear del Catalogo
+    - Crear Tabla
+    - Crear Proyecto
+    - Crear Agregar Datos
+    - Crear Busqueda
