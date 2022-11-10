@@ -40,3 +40,6 @@ EndWith
 ```
 
 #### Nota: *'cCamposBuscar'* puede recibir más de un parametro, sin embargo, para ello, debemos agregar un *'+'* entre cada parametro para que la búsqueda se pueda realizar y no genere un error.
+
+### Producto Final
+![Imagen de Búsqueda en SAIT](https://github.com/sait/hugo/blob/main/alumnos/Documentacion/img/listalumEnSait.png)
