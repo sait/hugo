@@ -9,6 +9,7 @@ create form busqueda as Busqueda from F:\hugo\msllib60\msllib60.vcx
 ```
 
 *Ventana Predeterminada*
+
 ![Imagen de Búsqueda](https://github.com/sait/hugo/blob/main/alumnos/Documentacion/img/listalum.png)
 
 Utilizaremos variables que el formulario ya contiene, las cuales nos permitiran hacer la busqueda en las tablas para obtener los resultados.
@@ -38,4 +39,4 @@ With ThisForm
 EndWith
 ```
 
-#### Nota: *cCamposBuscar* puede recibir más de un parametro, sin embargo, para ello, debemos agregar un **+** entre cada parametro para que la búsqueda se pueda realizar y no genere un error.
+#### Nota: *'cCamposBuscar'* puede recibir más de un parametro, sin embargo, para ello, debemos agregar un *'+'* entre cada parametro para que la búsqueda se pueda realizar y no genere un error.
