@@ -4,6 +4,12 @@
 
 En las ventanas de Catalogo, debemos de poder agregar datos, para ello, debemos configurar una ventana la cual obtenga esos datos y los guarde en la tabla
 Dicha Ventana, se utilizara para Agregar, Modificar y Eliminar.
+**Nota:**
+Los *TextBox* pueden llamarse como sea, sin embargo, en el codigo, debemos llamarlos por su nombre puesto.
+
+*Ventana creada*
+
+![Imagen de Búsqueda](https://github.com/sait/hugo/blob/main/alumnos/Documentacion/img/datalumEnSait.png)
 
 Para el *Init* debemos de crear una variable que utilizaremos para saber que modo utilizaremos al entrar a ella
 Para ello, nos dirigimos a ```Form/New Property``` en *Name* escribimos la variable ```nModo```
