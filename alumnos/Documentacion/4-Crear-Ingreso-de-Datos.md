@@ -3,6 +3,15 @@
 ## 09 de Noviembre del 2022
 
 En las ventanas de Catalogo, debemos de poder agregar datos, para ello, debemos configurar una ventana la cual obtenga esos datos y los guarde en la tabla
+
+Para crear una ventanda predeterminada de Sait (Con su logo) debemos escribir ```create form + nombre del archivo + as formamsl from + nombre de la ruta donde se encuentra la ventana predeterminada```
+
+```sql
+ create form Formulario as formamsl from F:\\hugo\msllib60\msllib60.vcx 
+```
+*Ventana con Logo*
+![Imagen de Ventana con Logo](https://github.com/sait/hugo/blob/main/alumnos/Documentacion/img/VentanaLogo.png)
+
 Dicha Ventana, se utilizara para Agregar, Modificar y Eliminar.
 **Nota:**
 Los *TextBox* pueden llamarse como sea, sin embargo, en el codigo, debemos llamarlos por su nombre puesto.

@@ -7,7 +7,7 @@ Para la creación del modulo especial, es posible iniciar desde el catalogo, ya 
 Para ello, nos dirigimos a VFP a la ventana de comandos y creamos el catalogo con la forma predefinida para catalogos (catmsl)
 
 ```sql
- create form catalum as catmsl from F:hugo\msllib60\catmsl.vcx 
+ create form catalum as catmsl from F:\\hugo\msllib60\catmsl.vcx 
  ```
 
 Se creara el siguiente catalogo.
